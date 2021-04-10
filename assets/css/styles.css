@@ -1,0 +1,653 @@
+@charset "UTF-8";
+/* ARCHIVOS EXTERNOS */
+/* COLORES PARA MENU, BOTONES SECCIONES */
+/* TAMAÑO DE LETRA PARA LOS PRODUCTOS */
+/* TAMAÑO DE LETRA PARA LOS PRECIOS */
+/* PESO DE LETRA */
+/* STYLESS */
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Open Sans";
+  box-sizing: border-box; }
+
+a {
+  text-decoration: none; }
+
+li {
+  list-style: none; }
+
+/* LOGOTIPO */
+.logo {
+  padding: 5px; }
+  .logo .logo__img {
+    border-radius: 21px;
+    border-style: outset;
+    border-color: rgba(113, 117, 123, 0.4);
+    width: 20%;
+    cursor: pointer;
+    margin: 6px 10px; }
+
+/* Barra de busqueda */
+.barra-busqueda {
+  width: 100%; }
+  .barra-busqueda .barra-busqueda__form {
+    padding: 13px; }
+  .barra-busqueda .barra-busqueda__input {
+    text-align: center;
+    padding: 9px;
+    width: 100%;
+    border-color: rgba(113, 117, 123, 0.4);
+    border-radius: 6px;
+    outline: none;
+    font-size: 13px; }
+  .barra-busqueda .barra-busqueda__input:focus {
+    border-color: #133246; }
+
+/* MENU SUPERIOR */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  background-color: #ffffff; }
+
+.menu-superior {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  line-height: 2rem;
+  /* SUB-MENU */ }
+  .menu-superior li {
+    width: 25%;
+    height: auto;
+    text-align: center; }
+  .menu-superior li ul {
+    display: none; }
+  .menu-superior li:hover ul {
+    display: block; }
+  .menu-superior a {
+    font-family: "Texturina";
+    font-size: 18px;
+    color: #ffffff;
+    cursor: pointer; }
+  .menu-superior a:hover {
+    transition: 0.5s linear all;
+    opacity: 0.7; }
+  .menu-superior .menu-superior__subMenu {
+    animation: aparecer 0.4s linear;
+    z-index: 1;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    height: 55px; }
+  .menu-superior .menu-superior__subMenu li {
+    display: inline;
+    float: left;
+    line-height: 50px; }
+
+@keyframes aparecer {
+  0% {
+    opacity: 0; }
+  25% {
+    opacity: 0.4; }
+  50% {
+    opacity: 0.6; }
+  75% {
+    opacity: 0.8; }
+  100% {
+    opacity: 1; } }
+
+/******* MAIN ******/
+/* TITULO SECCION */
+.seccion {
+  background: #efefef;
+  height: 200px; }
+  .seccion .seccion__contenedorTitulo {
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    width: 50%;
+    padding: 20px; }
+  .seccion .seccion__titulo {
+    font-size: 45px;
+    font-weight: 700;
+    text-transform: capitalize; }
+  .seccion .seccion__subrayado {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 7px;
+    width: 30%; }
+
+/* CONTENIDO SECCION */
+/* ANIMACION PARA MOSTRAR LAS IMAGENES CUANDO EL HTML ESTE LISTO */
+.imagenes-cargadas {
+  animation: cargar-documento 0.7s linear; }
+
+@keyframes cargar-documento {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+.contenedor-productos {
+  margin: 0 0; }
+  .contenedor-productos .contenedor-productos__article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 30px; }
+  .contenedor-productos .contenedor-productos__img {
+    width: 30%;
+    margin-top: 15px;
+    border-radius: 3px; }
+  .contenedor-productos .contenedor-productos__titulo {
+    color: #133246;
+    font-size: 15px;
+    font-weight: 700; }
+  .contenedor-productos .contenedor-productos__precio {
+    font-family: "Texturina";
+    font-size: 16px;
+    margin: 5px;
+    padding: 5px;
+    color: #bc431c; }
+  .contenedor-productos .contenedor-productos__botones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 5px 5px; }
+  .contenedor-productos .contenedor-productos__botones div {
+    text-align: center;
+    width: 60%;
+    height: auto;
+    margin: 2px; }
+  .contenedor-productos .contenedor-productos__botones button {
+    width: 45%;
+    padding: 10px;
+    font-weight: 700;
+    font-size: 13px;
+    border-radius: 5px;
+    background: #133246;
+    color: #ffffff;
+    cursor: pointer; }
+
+/* CLASE PARA ANIMAR LA VENTANA DE IMAGEN AMPLIADA Y LA VENTANA DE LA DESCRIPCION DEL PRODUCTO */
+.transicion {
+  animation: animacion 0.6s linear; }
+
+.aparicion {
+  animation: aparecer 0.8s linear; }
+
+@keyframes aparecer {
+  0%,
+  25%,
+  50%,
+  75% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes animacion {
+  0% {
+    opacity: 0;
+    width: 0%;
+    height: 0%; }
+  100% {
+    opacity: 1;
+    width: 65%;
+    height: 90%; } }
+
+.imagen-ampliada, .descripcion-producto {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9); }
+  .imagen-ampliada .imagen-ampliada__contenedor, .descripcion-producto .imagen-ampliada__contenedor {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 65%;
+    height: 90vh;
+    box-shadow: 0px 0px 5px #ffffff;
+    border-radius: 5px;
+    background-color: #ffffff; }
+  .imagen-ampliada .imagen-ampliada__btn-cerrar, .descripcion-producto .imagen-ampliada__btn-cerrar, .descripcion-producto .descripcion-producto__btn-cerrar {
+    position: absolute;
+    top: -24px;
+    right: -15px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #ffffff;
+    cursor: pointer;
+    outline: none; }
+  .imagen-ampliada .imagen-ampliada__img, .descripcion-producto .imagen-ampliada__img {
+    width: 50%;
+    height: 65%; }
+
+/* CONTENEDOR PARA LA DESCRIPCION DEL PRODUCTO */
+.descripcion-producto {
+  flex-direction: column; }
+  .descripcion-producto h3 {
+    color: #133246;
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 5px; }
+  .descripcion-producto ol {
+    padding: 0 0; }
+  .descripcion-producto li {
+    margin: 7px;
+    color: #133246;
+    opacity: 0.9; }
+  .descripcion-producto .descripcion-producto__contenedor {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 75%;
+    height: 90vh;
+    padding: 0 5px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px #ffffff; }
+  .descripcion-producto .descripcion-producto__img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: auto; }
+    .descripcion-producto .descripcion-producto__img img {
+      width: 200px;
+      height: 200px; }
+  .descripcion-producto .descripcion-producto__informacion {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 270px;
+    padding: 10px 0; }
+  .descripcion-producto .descripcion-producto__informacion--banner {
+    width: 100%; }
+  .descripcion-producto .descripcion-producto__caracteristicas {
+    width: 100%;
+    height: 250px;
+    display: flex; }
+  .descripcion-producto .descripcion-producto__caracteristicas--detalle {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 33.33%;
+    padding: 1px; }
+  .descripcion-producto .descripcion-producto__caracteristicas--btn-mas-info {
+    text-align: center;
+    width: 55%;
+    height: 50px;
+    margin-top: 70px;
+    margin-left: 50px;
+    border-radius: 5px;
+    background-color: #133246;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 50px;
+    letter-spacing: 1px;
+    font-family: "Texturina";
+    color: #ffffff;
+    cursor: pointer; }
+  .descripcion-producto .animar-consulta:hover {
+    animation: 1s latido 1;
+    opacity: 0.9; }
+
+@keyframes latido {
+  40% {
+    transform: scale(1.1); }
+  20%,
+  60% {
+    transform: scale(0.8); } }
+
+/* MENSAJE DE ERROR */
+.error {
+  padding: 20px;
+  margin-top: 100px;
+  margin-bottom: 100px; }
+  .error .error__contenedor {
+    display: flex;
+    justify-content: center; }
+  .error h2 {
+    color: #133246;
+    text-align: center;
+    font-weight: 600;
+    font-size: 25px; }
+
+/* FOOTER */
+footer {
+  margin-top: 80px;
+  border: 1px groove rgba(255, 255, 255, 0.5); }
+
+.menu-inferior {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .menu-inferior .menu-inferior__ul {
+    text-align: center;
+    margin: 20px;
+    padding: 0;
+    width: 25%; }
+  .menu-inferior .menu-inferior__titulo {
+    font-size: 15px;
+    font-weight: 600;
+    color: #133246;
+    margin-bottom: 10px; }
+  .menu-inferior a {
+    color: #133246;
+    opacity: 0.9;
+    font-size: 13px;
+    text-decoration: none; }
+
+.derechos-autor {
+  margin-top: 5px;
+  font-weight: 600;
+  text-align: center;
+  padding: 7px;
+  font-size: 15px;
+  color: #133246; }
+
+.iconos {
+  display: flex;
+  flex-direction: row;
+  justify-content: center; }
+  .iconos a {
+    width: 50px;
+    height: 50px;
+    margin: 20px;
+    text-align: center;
+    color: #ffffff;
+    line-height: 50px;
+    font-size: 23px;
+    border-radius: 100px;
+    animation: ease; }
+  .iconos a:hover {
+    animation: animacion-iconos 0.5s linear; }
+
+@keyframes animacion-iconos {
+  from {
+    transform: rotate3d(0, 0, 0, 0); }
+  to {
+    transform: rotate3d(0, 1, 0, 360deg); } }
+  .iconos .iconos__github {
+    background: #171515; }
+  .iconos .iconos__linkedin {
+    background: #0e76a8; }
+
+/* CONTACTO */
+.cover-contacto, .cover-quien-somos {
+  background-image: url(../img/DSC_2965.jpg);
+  background-size: cover;
+  height: 200px; }
+
+.formulario, .quien-somos {
+  margin-top: 60px;
+  padding: 5px; }
+  .formulario .formulario__titulo, .quien-somos .formulario__titulo, .quien-somos .quien-somos__titulo {
+    text-align: center;
+    font-weight: 700;
+    color: #133246; }
+  .formulario .formulario__contenedor, .quien-somos .formulario__contenedor {
+    padding: 5px 5px; }
+  .formulario form, .quien-somos form {
+    display: flex;
+    flex-direction: column; }
+  .formulario label, .quien-somos label {
+    margin: 5px 5px;
+    font-family: "Texturina";
+    font-weight: 700;
+    font-size: 17px;
+    color: #133246; }
+  .formulario input[type="text"], .quien-somos input[type="text"],
+  .formulario input[type="email"],
+  .quien-somos input[type="email"],
+  .formulario textarea,
+  .quien-somos textarea {
+    width: 85%;
+    border: 1px groove rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    margin: 3px 5px;
+    padding: 10px;
+    outline: none; }
+  .formulario input[type="text"]:focus, .quien-somos input[type="text"]:focus,
+  .formulario input[type="email"]:focus,
+  .quien-somos input[type="email"]:focus,
+  .formulario textarea:focus,
+  .quien-somos textarea:focus {
+    background-color: rgba(216, 216, 216, 0.2);
+    border-color: #133246;
+    box-shadow: 0px 0px 10px 0px #cccc; }
+  .formulario input[type="submit"], .quien-somos input[type="submit"] {
+    margin-top: 10px;
+    padding: 10px;
+    width: 75px;
+    font-weight: 700;
+    font-size: 14px;
+    background-color: #133246;
+    color: #ffffff;
+    border-radius: 3px;
+    cursor: pointer; }
+  .formulario input[type="submit"]:hover, .quien-somos input[type="submit"]:hover {
+    opacity: 0.9; }
+
+/* QUIEN SOMOS */
+.cover-quien-somos {
+  background-image: url(../img/35.jpg); }
+
+.quien-somos .quien-somos__contenedor {
+  margin: 5px 5px; }
+  .quien-somos .quien-somos__contenedor .quien-somos__contenido--article {
+    padding: 15px 5px; }
+  .quien-somos .quien-somos__contenedor .quien-somos__contenido--titulo {
+    color: #133246;
+    font-size: 20px;
+    font-weight: 700; }
+  .quien-somos .quien-somos__contenedor .quien-somos__contenido--texto {
+    text-align: justify; }
+
+.publicidad {
+  border-top: 1px groove rgba(255, 255, 255, 0.5); }
+  .publicidad .publicidad__contenedor {
+    display: flex;
+    justify-content: center; }
+  .publicidad .publicidad__titulo {
+    text-align: center;
+    color: #133246;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 2rem; }
+  .publicidad img {
+    height: 50px;
+    width: 50px;
+    margin: 3px 10px; }
+
+/*******************************
+ COLORES PARA MENU, SUB-MENU Y TITULOS DE SECCION
+
+********************************/
+/*Segun la seccion que sea, se le asignara un color de fondo*/
+/* USAMOS ESTA CLASE PARA ASIGNARLE COLOR DE FONDO A LA SECCION DEL MENU */
+.menu-superior--hogar {
+  background-color: #133246; }
+
+/* USAMOS ESTA CLASE PARA ASIGNARLE EL COLOR DE FONDO AL SUB-MENU SEGUN LA SECCION QUE TENGA EL HOVER */
+.menu-superior__subMenu--hogar {
+  background-color: #133246; }
+
+/* USAMOS ESTA CLASE PARA ASIGNARLE EL COLOR AL TITULO DE LA SECCION */
+.seccion__titulo--hogar {
+  color: #133246; }
+
+/* USAMOS ESTA CLASE PARA ASIGNARLE COLOR DE FONDO AL SUBRAYADO PARA EL TITULO DE LA SECCION */
+.seccion__subrayado--hogar {
+  background-color: #133246; }
+
+/* USAMOS ESTA CLASE PARA ASIGNARLE COLOR DE FONDO A LA SECCION DEL MENU */
+.menu-superior--exteriores {
+  background-color: #664c79; }
+
+/* USAMOS ESTA CLASE PARA ASIGNARLE EL COLOR DE FONDO AL SUB-MENU SEGUN LA SECCION QUE TENGA EL HOVER */
+.menu-superior__subMenu--exteriores {
+  background-color: #664c79; }
+
+/* USAMOS ESTA CLASE PARA ASIGNARLE EL COLOR AL TITULO DE LA SECCION */
+.seccion__titulo--exteriores {
+  color: #664c79; }
+
+/* USAMOS ESTA CLASE PARA ASIGNARLE COLOR DE FONDO AL SUBRAYADO PARA EL TITULO DE LA SECCION */
+.seccion__subrayado--exteriores {
+  background-color: #664c79; }
+
+/* USAMOS ESTA CLASE PARA ASIGNARLE COLOR DE FONDO A LA SECCION DEL MENU */
+.menu-superior--interiores {
+  background-color: #51a081; }
+
+/* USAMOS ESTA CLASE PARA ASIGNARLE EL COLOR DE FONDO AL SUB-MENU SEGUN LA SECCION QUE TENGA EL HOVER */
+.menu-superior__subMenu--interiores {
+  background-color: #51a081; }
+
+/* USAMOS ESTA CLASE PARA ASIGNARLE EL COLOR AL TITULO DE LA SECCION */
+.seccion__titulo--interiores {
+  color: #51a081; }
+
+/* USAMOS ESTA CLASE PARA ASIGNARLE COLOR DE FONDO AL SUBRAYADO PARA EL TITULO DE LA SECCION */
+.seccion__subrayado--interiores {
+  background-color: #51a081; }
+
+/* USAMOS ESTA CLASE PARA ASIGNARLE COLOR DE FONDO A LA SECCION DEL MENU */
+.menu-superior--otros {
+  background-color: #cc1728; }
+
+/* USAMOS ESTA CLASE PARA ASIGNARLE EL COLOR DE FONDO AL SUB-MENU SEGUN LA SECCION QUE TENGA EL HOVER */
+.menu-superior__subMenu--otros {
+  background-color: #cc1728; }
+
+/* USAMOS ESTA CLASE PARA ASIGNARLE EL COLOR AL TITULO DE LA SECCION */
+.seccion__titulo--otros {
+  color: #cc1728; }
+
+/* USAMOS ESTA CLASE PARA ASIGNARLE COLOR DE FONDO AL SUBRAYADO PARA EL TITULO DE LA SECCION */
+.seccion__subrayado--otros {
+  background-color: #cc1728; }
+
+.activada {
+  display: none !important; }
+
+/* ********************************************************************* */
+/* RESPONSIVE */
+/* ********************************************************************* */
+@media only screen and (max-width: 440px) {
+  .logo .logo__img {
+    width: 35%; }
+  .seccion .seccion__titulo {
+    font-size: 35px; }
+  .contenedor-productos .contenedor-productos__titulo {
+    font-size: 13px; }
+  .contenedor-productos .contenedor-productos__precio {
+    font-size: 15px; }
+  .contenedor-productos .contenedor-productos__botones div {
+    width: 90%; }
+  .contenedor-productos .contenedor-productos__botones button {
+    width: 55%;
+    font-size: 11px; }
+  .imagen-ampliada .imagen-ampliada__img, .descripcion-producto .imagen-ampliada__img {
+    width: 70%;
+    height: max-content; }
+  .menu-inferior a {
+    font-size: 11px; }
+  .menu-inferior .menu-inferior__titulo {
+    font-size: 13px; }
+  .derechos-autor {
+    font-size: 13px; } }
+
+@media only screen and (max-width: 650px) {
+  .menu-superior {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    line-height: 1rem; }
+    .menu-superior a {
+      font-size: 15px; }
+    .menu-superior li {
+      width: 100%; }
+    .menu-superior li:hover ul {
+      display: none; }
+  .contenedor-productos .contenedor-productos__img {
+    width: 40%; }
+  .descripcion-producto .descripcion-producto__contenedor {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 95%;
+    overflow: scroll; }
+  .descripcion-producto .descripcion-producto__btn-cerrar {
+    top: -5px;
+    right: 4px;
+    color: #000000; }
+  .descripcion-producto .descripcion-producto__img {
+    width: 100%; }
+    .descripcion-producto .descripcion-producto__img img {
+      width: 40%;
+      height: 80%; }
+  .descripcion-producto .descripcion-producto__informacion {
+    height: auto;
+    width: 100%; }
+  .descripcion-producto .descripcion-producto__caracteristicas {
+    flex-direction: column;
+    height: auto; }
+  .descripcion-producto .descripcion-producto__caracteristicas--detalle {
+    width: 100%;
+    border-top: 1px groove rgba(255, 255, 255, 0.5); }
+  .descripcion-producto .descripcion-producto__caracteristicas--btn-mas-info {
+    width: 45%;
+    margin-left: 0px; }
+  .imagen-ampliada .imagen-ampliada__contenedor, .descripcion-producto .imagen-ampliada__contenedor {
+    width: 95%; }
+  .imagen-ampliada .imagen-ampliada__btn-cerrar, .descripcion-producto .imagen-ampliada__btn-cerrar, .descripcion-producto .descripcion-producto__btn-cerrar {
+    top: -5px;
+    right: 4px;
+    color: #000000; }
+  .cover-contacto, .cover-quien-somos {
+    height: 145px; }
+  .menu-inferior .menu-inferior__ul {
+    width: 100%; }
+  .quien-somos .quien-somos__contenedor .quien-somos__contenido--titulo {
+    font-size: 15px; }
+  .quien-somos .quien-somos__contenedor .quien-somos__contenido--texto {
+    font-size: 14px; } }
+
+@media only screen and (min-width: 768px) {
+  .logo .logo__img {
+    width: 27%; }
+  .contenedor-productos {
+    display: flex; }
+    .contenedor-productos .contenedor-productos__article {
+      width: 32%; }
+    .contenedor-productos .contenedor-productos__img {
+      width: 50%; }
+    .contenedor-productos .contenedor-productos__titulo {
+      font-size: 12px; }
+    .contenedor-productos .contenedor-productos__botones {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      width: 100%; }
+    .contenedor-productos .contenedor-productos__botones div {
+      width: 48%;
+      padding: 0 0; }
+    .contenedor-productos .contenedor-productos__botones button {
+      width: 95%; } }
