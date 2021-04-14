@@ -267,12 +267,12 @@ header {
   }
   .imagen-ampliada__btn-cerrar {
     position: absolute;
-    top: -24px;
-    right: -15px;
+    top: -7px;
+    right: 2px;
     background: none;
     border: none;
     font-size: 20px;
-    color: $blanco;
+    color: #000000;
     cursor: pointer;
     outline: none;
   }
@@ -311,6 +311,7 @@ header {
     background-color: $blanco;
     border-radius: 5px;
     box-shadow: 0px 0px 5px $blanco;
+    overflow: scroll;
   }
   .descripcion-producto__btn-cerrar {
     @extend .imagen-ampliada__btn-cerrar;
