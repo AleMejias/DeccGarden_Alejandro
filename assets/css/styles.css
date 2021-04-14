@@ -225,12 +225,12 @@ header {
     background-color: #ffffff; }
   .imagen-ampliada .imagen-ampliada__btn-cerrar, .descripcion-producto .imagen-ampliada__btn-cerrar, .descripcion-producto .descripcion-producto__btn-cerrar {
     position: absolute;
-    top: -24px;
-    right: -15px;
+    top: -7px;
+    right: 2px;
     background: none;
     border: none;
     font-size: 20px;
-    color: #ffffff;
+    color: #000000;
     cursor: pointer;
     outline: none; }
   .imagen-ampliada .imagen-ampliada__img, .descripcion-producto .imagen-ampliada__img {
