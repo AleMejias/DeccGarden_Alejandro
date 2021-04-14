@@ -102,7 +102,7 @@ header {
 /* TITULO SECCION */
 .seccion {
   background: #efefef;
-  height: 200px; }
+  height: 180px; }
   .seccion .seccion__contenedorTitulo {
     display: flex;
     align-items: flex-end;
@@ -554,6 +554,8 @@ footer {
 @media only screen and (max-width: 440px) {
   .logo .logo__img {
     width: 35%; }
+  .seccion{
+    height: 150px; }
   .seccion .seccion__titulo {
     font-size: 35px; }
   .contenedor-productos .contenedor-productos__titulo {
@@ -614,7 +616,8 @@ footer {
     border-top: 1px groove rgba(255, 255, 255, 0.5); }
   .descripcion-producto .descripcion-producto__caracteristicas--btn-mas-info {
     width: 45%;
-    margin-left: 0px; }
+    margin-left: 0px;
+    margin-top: 0px; }
   .imagen-ampliada .imagen-ampliada__contenedor, .descripcion-producto .imagen-ampliada__contenedor {
     width: 95%; }
   .imagen-ampliada .imagen-ampliada__btn-cerrar, .descripcion-producto .imagen-ampliada__btn-cerrar, .descripcion-producto .descripcion-producto__btn-cerrar {
